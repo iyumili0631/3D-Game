@@ -44,7 +44,7 @@ public class item : MonoBehaviour
         Allow_To_Getkey = false;
         checkpoint.transform.Translate(2.0f, 0f, 0f);
         Destroy(gameObject);
-//        Instantiate(effect, transform.position, Quaternion.identity);
+        Instantiate(effect, transform.position, Quaternion.identity);
     }
 
     public bool ReturnMatch()

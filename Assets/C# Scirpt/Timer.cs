@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Text = TMPro.TextMeshProUGUI;
 
 public class Timer : MonoBehaviour
@@ -21,7 +22,9 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(Countdown());   //呼叫倒數計時的協程
+        StartCoroutine(Countdown());//呼叫倒數計時的協程
+        Time.timeScale = 1;
+        SceneManager.GetActiveScene();
     }
 
     IEnumerator Countdown()
@@ -45,11 +48,12 @@ public class Timer : MonoBehaviour
             {
                 m_sec = 0;                      //設定秒數等於 0
             }
-            m_timer.text = string.Format("TIME: {0}:{1}", m_min.ToString("00"), m_sec.ToString("00"));
+            m_timer.text = string.Format("{0}:{1}", m_min.ToString("00"), m_sec.ToString("00"));
         }
 
         yield return new WaitForSeconds(1);   //時間結束時，顯示 00:00 停留一秒
-        m_gameOver.SetActive(true);           //時間結束時，畫面出現 GAME OVER
+        m_gameOver.SetActive(true);//時間結束時，畫面出現 GAME OVER
+        SceneManager.LoadScene(5);
         Time.timeScale = 0;                   //時間結束時，控制遊戲暫停無法操作
     }
 }

@@ -10,7 +10,7 @@ public class bulletCon : MonoBehaviour
     void Update()
     {
         transform.Translate(speed * Time.deltaTime, 0f, 0f);
-        if (transform.position.x > 5)
+        if (transform.position.x > 4)
             Destroy(gameObject);
     }
 }

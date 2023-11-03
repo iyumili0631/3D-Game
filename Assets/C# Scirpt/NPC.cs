@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 using Text = TMPro.TextMeshProUGUI;
+using UnityEngine.SceneManagement;
 
 
 public class NPC : MonoBehaviour
@@ -58,6 +59,7 @@ public class NPC : MonoBehaviour
         {
             dialougePanel.SetActive(false);
             index = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             return;
         }
 
@@ -146,6 +148,7 @@ public class NPC : MonoBehaviour
         {
             dialougePanel.SetActive(false);
             index = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             return;
         }
     }

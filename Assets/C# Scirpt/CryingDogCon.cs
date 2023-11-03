@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
+using System.Threading.Tasks;
+
 
 public class CryingDogCon : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
     public ScoreTextController score;
 
     // Start is called before the first frame update
@@ -16,14 +19,15 @@ public class CryingDogCon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(score.isTarget){
+        // if(score.isTarget){
+        //     blastAnimation();
+        // }
 
-            blastAnimation();
-        }
     }
 
     public void blastAnimation(){
-        animator.SetInteger("state", 1);
-              
+        animator.SetBool("isTarget", true);
+        //Debug.Log(animator.GetBool("isTarget"));
+        //Thread.Sleep(2000);
     }
 }
